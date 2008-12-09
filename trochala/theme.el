@@ -3,6 +3,8 @@
   (color-theme-initialize))
 (setq color-theme-is-global t)
 
-(color-theme-gnome2)
+;; (color-theme-gnome2)
 ;; (set-background-color "grey10")
 ;; (pink-bliss)
+(load-file "~/.emacs.d/vendor/twilight-emacs/color-theme-twilight.el")
+(color-theme-twilight)

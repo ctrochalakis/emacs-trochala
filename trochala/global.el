@@ -1,22 +1,11 @@
-;; Local-paths
-
-(setq install-elisp-repository-directory "~/.emacs.d/")
-
-; Provide a useful error trace if loading this monster fails.
-;(setq debug-on-error t)
-
-;; Requirements
 (require 'pymacs)
 (require 'ido)
 (require 'anything)
-;(require 'eproject)
-;(require 'project-root)
-(require 'django-mode)
-(require 'django-html-mode)
 (require 'smooth-scrolling)
 (require 'ipython)
 (require 'install-elisp)
-;;(require 'yasnippet)
+;(require 'eproject)
+;(require 'project-root)
 
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
@@ -24,10 +13,9 @@
 (autoload 'cycle-buffer-backward-permissive "cycle-buffer" "Cycle backward allowing *buffers*." t)
 (autoload 'cycle-buffer-toggle-interesting "cycle-buffer" "Toggle if this buffer will be considered." t)
 
-;;(yas/initialize)
-;;(yas/load-directory "~/.emacs.d/yasnippet/snippets/")
-
 (pymacs-load "ropemacs" "rope-")
+
+(setq install-elisp-repository-directory "~/.emacs.d/")
 
 ;; Start the server
 (server-start)

@@ -1,3 +1,6 @@
+(require 'django-mode)
+(require 'django-html-mode)
+
 (setq default-major-mode 'indented-text-mode)
 (toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
 ;(cua-mode t)
