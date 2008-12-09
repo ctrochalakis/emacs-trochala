@@ -1,0 +1,18 @@
+[submodule "vendor/markdown-mode"]
+	path = vendor/markdown-mode
+	url = git://github.com/defunkt/markdown-mode.git
+[submodule "vendor/gist.el"]
+	path = vendor/gist.el
+	url = git://github.com/defunkt/gist.el.git
+[submodule "vendor/yasnippet"]
+	path = vendor/yasnippet
+	url = git://github.com/smtlaissezfaire/yasnippet.git
+[submodule "vendor/anything-config"]
+	path = vendor/anything-config
+	url = git://repo.or.cz/anything-config.git
+[submodule "vendor/dpaste.el"]
+	path = vendor/dpaste.el
+	url = git://github.com/gregnewman/dpaste.el.git
+[submodule "vendor/egg"]
+	path = vendor/egg
+	url = git://github.com/bogolisk/egg.git
