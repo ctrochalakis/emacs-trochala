@@ -76,3 +76,8 @@
   "toggle full-screen mode"
   (interactive)
   (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
+
+(defun djcb-zoom (n)
+  "with positive N, increase the font size, otherwise decrease it"
+  (set-face-attribute 'default (selected-frame) :height 
+    (+ (face-attribute 'default :height) (* (if (> n 0) 1 -1) 10))))

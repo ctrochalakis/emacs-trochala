@@ -16,3 +16,6 @@
 
 (global-set-key (kbd "C-x C-<left>") 'cycle-buffer-backward)
 (global-set-key (kbd "C-x C-<right>") 'cycle-buffer)
+
+(global-set-key [C-kp-add]       '(lambda nil (interactive) (djcb-zoom 1)))
+(global-set-key [C-kp-subtract]  '(lambda nil (interactive) (djcb-zoom -1)))
