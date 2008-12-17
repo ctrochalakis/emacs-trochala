@@ -71,3 +71,8 @@
         (setq isearch-initial-string (buffer-substring begin end))
         (add-hook 'isearch-mode-hook 'isearch-set-initial-string)
         (isearch-forward regexp-p no-recursive-edit)))))
+
+(defun djcb-full-screen-toggle ()
+  "toggle full-screen mode"
+  (interactive)
+  (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
