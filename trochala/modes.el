@@ -1,9 +1,11 @@
 (require 'django-mode)
 (require 'django-html-mode)
+(require 'whole-line-or-region)
 
 (setq default-major-mode 'indented-text-mode)
 (toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
-;(cua-mode t)
+(cua-mode t)
+(setq cua-enable-cua-keys nil)		;do not mess with my keys!
 (recentf-mode t)		   ;remember recent files
 ;(egg-minor-mode)		   ;git egg mode
 (ido-mode t)
@@ -14,6 +16,7 @@
 (winner-mode t)
 (desktop-save-mode t)	       ; saving sessions
 (delete-selection-mode t)	 	;replace highlighted text
+(whole-line-or-region-mode t)
 (blink-cursor-mode 0)
 (setq line-number-mode t)
 (setq column-number-mode t)
