@@ -19,6 +19,8 @@
 
 ;; Start the server
 (server-start)
+(tabbar-mode t)
+(load "tabbar-custom")
 
 ;; Some window system specific settings.
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
