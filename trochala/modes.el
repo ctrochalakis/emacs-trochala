@@ -1,6 +1,8 @@
 (require 'django-mode)
 (require 'django-html-mode)
 (require 'whole-line-or-region)
+(autoload 'js2-mode "js2" nil t)
+
 
 (setq default-major-mode 'indented-text-mode)
 (toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
@@ -37,3 +39,6 @@
 ; Egg python files
 ;; Use archive mode to open Python eggs
 (add-to-list 'auto-mode-alist '("\\.egg\\'" . archive-mode))
+
+; Javascript
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
