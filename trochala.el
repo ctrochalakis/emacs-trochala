@@ -13,6 +13,7 @@
 (load "trochala/modes")
 (load "trochala/theme")
 
+(vendor 'nav)
 (vendor 'anything-config)
 (vendor 'dpaste)
 (vendor 'egg)
