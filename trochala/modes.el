@@ -12,6 +12,7 @@
 ;(egg-minor-mode)		   ;git egg mode
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
+(setq ido-create-new-buffer 'always)
 (show-paren-mode t)	       ; show parenthesis mode
 (savehist-mode t)	       ; save minibuffer history
 (windmove-default-keybindings) ; move around windows using shift-movement
