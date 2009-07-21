@@ -7,7 +7,6 @@
 
 (when (file-exists-p ".passwords") (load ".passwords"))
 
-(load "trochala/global")
 (load "trochala/defuns")
 (load "trochala/bindings")
 (load "trochala/modes")
@@ -21,5 +20,10 @@
 (vendor 'markdown-mode)
 (vendor 'yasnippet)
 
+(load "trochala/global")
+
+(load "trochala/trochala-python.el")
+
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
+;(setq yas/trigger-key (kbd "C-c u"))
