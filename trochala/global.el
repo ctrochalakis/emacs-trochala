@@ -13,6 +13,7 @@
 (autoload 'cycle-buffer-backward-permissive "cycle-buffer" "Cycle backward allowing *buffers*." t)
 (autoload 'cycle-buffer-toggle-interesting "cycle-buffer" "Toggle if this buffer will be considered." t)
 
+(load "elscreen" "ElScreen" )
 (pymacs-load "ropemacs" "rope-")
 
 (setq install-elisp-repository-directory "~/.emacs.d/")
