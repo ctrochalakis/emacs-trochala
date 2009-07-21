@@ -13,11 +13,20 @@
 (global-set-key (kbd "C-c l") 'kill-buffer-and-window)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c |") 'toggle-window-split)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
-(global-set-key (kbd "C-x C-<left>") 'cycle-buffer-backward)
-(global-set-key (kbd "C-x C-<right>") 'cycle-buffer)
-(global-set-key [(control shift tab)] 'tabbar-backward-tab)
-(global-set-key [(control tab)]       'tabbar-forward-tab)
+;(global-set-key (kbd "C-x C-<left>") 'cycle-buffer-backward)
+;(global-set-key (kbd "C-x C-<right>") 'cycle-buffer)
+(global-set-key [(control shift tab)] 'cycle-buffer-backward)
+(global-set-key [(control tab)]       'cycle-buffer)
+
+;; F9 creates a new elscreen, shift-F9 kills it
+(global-set-key (kbd "<f9>"    ) 'elscreen-create)
+(global-set-key (kbd "S-<f9>"  ) 'elscreen-kill)  
+
+;; Windowskey+PgUP/PgDown switches between elscreens
+(global-set-key (kbd "<s-prior>") 'elscreen-previous) 
+(global-set-key (kbd "<s-next>")  'elscreen-next) 
 
 (global-set-key [C-kp-add]       '(lambda nil (interactive) (djcb-zoom 1)))
 (global-set-key [C-kp-subtract]  '(lambda nil (interactive) (djcb-zoom -1)))
