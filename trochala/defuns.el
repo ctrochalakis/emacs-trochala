@@ -81,3 +81,47 @@
   "with positive N, increase the font size, otherwise decrease it"
   (set-face-attribute 'default (selected-frame) :height 
     (+ (face-attribute 'default :height) (* (if (> n 0) 1 -1) 10))))
+
+(defun smart-split ()
+  "Split the frame into 80-column sub-windows, and make sure no window has
+   fewer than 80 columns."
+  ; From http://hjiang.net/archives/253
+  (interactive)
+  (defun smart-split-helper (w)
+    "Helper function to split a given window into two, the first of which has
+     80 columns."
+    (if (> (window-width w) (* 2 81))
+    (let ((w2 (split-window w 82 t)))
+      (smart-split-helper w2))))
+  (smart-split-helper nil))
+
+(defadvice kill-buffer (around my-kill-buffer-check activate)
+  "Prompt when a buffer is about to be killed."
+  (let* ((buffer-file-name (buffer-file-name))
+         backup-file)
+    ;; see 'backup-buffer
+    (if (and (buffer-modified-p)
+             buffer-file-name
+             (file-exists-p buffer-file-name)
+             (setq backup-file (car (find-backup-file-name buffer-file-name))))
+        (let ((answer (completing-read (format "Buffer modified %s, (d)iff, (s)ave, (k)ill? " (buffer-name))
+                                       '("d" "s" "k") nil t)))
+          (cond ((equal answer "d")
+                 (set-buffer-modified-p nil)
+                 (let ((orig-buffer (current-buffer))
+                       (file-to-diff (if (file-newer-than-file-p buffer-file-name backup-file)
+                                         buffer-file-name
+                                       backup-file)))
+                   (set-buffer (get-buffer-create (format "%s last-revision" (file-name-nondirectory file-to-diff))))
+                   (buffer-disable-undo)
+                   (insert-file-contents file-to-diff nil nil nil t)
+                   (set-buffer-modified-p nil)
+                   (setq buffer-read-only t)
+                   (ediff-buffers (current-buffer) orig-buffer)))
+                ((equal answer "k")
+                 (set-buffer-modified-p nil)
+                 ad-do-it)
+                (t
+                 (save-buffer)
+                 ad-do-it)))
+      ad-do-it)))
