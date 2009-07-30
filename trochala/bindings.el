@@ -2,6 +2,7 @@
 
 (global-set-key (kbd "<f11>") 'dired); switch file
 (global-set-key (kbd "<f12>")  'djcb-full-screen-toggle)
+(global-set-key (kbd "<f10>") 'anything);
 
 ;(global-set-key (kbd "M-/") 'hippie-expand)
 ;(global-set-key (kbd "C-w") 'backward-kill-word)
