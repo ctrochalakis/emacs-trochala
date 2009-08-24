@@ -1,11 +1,12 @@
-(require 'pymacs)
 (require 'ido)
 (require 'anything)
 (require 'smooth-scrolling)
-(require 'ipython)
 (require 'install-elisp)
 ;(require 'eproject)
 ;(require 'project-root)
+
+
+(set-default-font "Monospace-8")
 
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
@@ -14,7 +15,6 @@
 (autoload 'cycle-buffer-toggle-interesting "cycle-buffer" "Toggle if this buffer will be considered." t)
 
 (load "elscreen" "ElScreen" )
-(pymacs-load "ropemacs" "rope-")
 
 (setq install-elisp-repository-directory "~/.emacs.d/")
 
