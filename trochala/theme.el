@@ -8,5 +8,8 @@
 ;; (pink-bliss)
 ;; (load-file "~/.emacs.d/vendor/twilight-emacs/color-theme-twilight.el")
 ;; (color-theme-twilight)
-(load-file "~/.emacs.d/color-theme-tango.el")
-(color-theme-tango)
+(require 'color-theme-tango)
+(if window-system
+    (color-theme-tango))
+(if (not (window-system))
+    (color-theme-tty-dark))
