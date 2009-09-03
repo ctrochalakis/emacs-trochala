@@ -9,6 +9,7 @@
 ;(global-set-key (kbd "C-x C-k") 'kill-region)
 ;(global-set-key (kbd "C-c C-k") 'kill-region)
 
+(global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-c p") 'copy-line) ; copy current line
 (global-set-key (kbd "C-c k") 'kill-this-buffer)
 (global-set-key (kbd "C-c l") 'kill-buffer-and-window)
