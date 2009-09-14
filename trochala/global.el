@@ -6,8 +6,8 @@
 ;(require 'project-root)
 
 
-;; (set-default-font "Monospace-8")
-(set-default-font "Envy Code R-10")
+;;(set-default-font "Monospace-10")
+(set-default-font "Envy Code R-11")
 
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
