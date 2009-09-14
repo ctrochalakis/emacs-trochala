@@ -12,8 +12,8 @@
 ;The following loads Dave Love's python mode:
 ;(add-to-list 'load-path "~/.emacs.d/dave-loves-python-mode")
 ;(load-library "python")
-(require 'python)
-(require 'auto-complete)
+
+(autoload 'auto-complete "auto-complete" "Autocomplete" t)
 (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
