@@ -7,7 +7,7 @@
 
 
 ;; (set-default-font "Monospace-8")
-(set-default-font "Envy Code R-8")
+(set-default-font "Envy Code R-10")
 
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
@@ -23,6 +23,16 @@
 (server-start)
 (tabbar-mode t)
 (load "trochala/tabbar-custom")
+
+;; New frame defaults
+(defun ct-new-frame-settings (frame)
+  (select-frame frame)
+  (choose-theme)
+)
+
+(add-hook 'after-make-frame-functions 'ct-new-frame-settings)
+
+(add-to-list 'default-frame-alist '(font . "Envy Code R-10"))
 
 ;; Some window system specific settings.
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))

@@ -1,15 +1,19 @@
 (require 'color-theme)
 (when (fboundp 'color-theme-initialize)
   (color-theme-initialize))
-(setq color-theme-is-global t)
+;(setq color-theme-is-global t)
 
 ;; (color-theme-gnome2)
 ;; (set-background-color "grey10")
 ;; (pink-bliss)
 ;; (load-file "~/.emacs.d/vendor/twilight-emacs/color-theme-twilight.el")
 ;; (color-theme-twilight)
-(require 'color-theme-tango)
-(if window-system
-    (color-theme-tango))
+(autoload 'color-theme-tango "color-theme-tango" "Tango theme" t)
+
+(defun choose-theme ()
+  (if window-system
+      (color-theme-tango))
 (if (not (window-system))
-    (color-theme-tty-dark))
+    (color-theme-tty-dark)))
+
+(choose-theme)
