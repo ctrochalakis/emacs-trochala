@@ -1,15 +1,12 @@
-(require 'django-mode)
-(require 'django-html-mode)
-(require 'whole-line-or-region)
-(autoload 'js2-mode "js2" nil t)
-
+(autoload 'django-mode "django-mode" "Django Mode" t)
+(autoload 'django-html-mode "django-html-mode" "Django html mode" t)
+(autoload 'whole-line-or-region "whole-line-or-region" "Whole line" t)
 
 (setq default-major-mode 'indented-text-mode)
 (toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
 (cua-mode t)
 (setq cua-enable-cua-keys nil)		;do not mess with my keys!
 (recentf-mode t)		   ;remember recent files
-;(egg-minor-mode)		   ;git egg mode
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
 (setq ido-create-new-buffer 'always)
@@ -21,6 +18,7 @@
 (delete-selection-mode t)	 	;replace highlighted text
 (whole-line-or-region-mode t)
 (blink-cursor-mode 0)
+(tool-bar-mode 0)
 (setq line-number-mode t)
 (setq column-number-mode t)
 (setq inhibit-startup-message t)	;don't need it anymore.
@@ -42,4 +40,5 @@
 (add-to-list 'auto-mode-alist '("\\.egg\\'" . archive-mode))
 
 ; Javascript
+(autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
