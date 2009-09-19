@@ -23,6 +23,7 @@
 (setq column-number-mode t)
 (setq inhibit-startup-message t)	;don't need it anymore.
 (setq transient-mark-mode t)		;mark selected area
+(setq kill-whole-line t) ;kill newline as well
 
 ;; Filetype specific
 ; Matlab
