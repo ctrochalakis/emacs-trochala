@@ -95,6 +95,31 @@
       (smart-split-helper w2))))
   (smart-split-helper nil))
 
+;; behave like vi's o command
+(defun open-next-line (arg)
+  "Move to the next line and then opens a line.
+  See also `newline-and-indent'."
+  (interactive "p")
+  (end-of-line)
+  (open-line arg)
+  (next-line 1)
+  (when newline-and-indent
+    (indent-according-to-mode)))
+
+;; behave like vi's O command
+(defun open-previous-line (arg)
+  "Open a new line before the current one.
+  See also `newline-and-indent'."
+  (interactive "p")
+  (beginning-of-line)
+  (open-line arg)
+  (when newline-and-indent
+    (indent-according-to-mode)))
+
+;; autoindent open-*-lines
+(defvar newline-and-indent t
+  "Modify the behavior of the open-*-line functions to cause them to autoindent.")
+
 ;; (defadvice kill-buffer (around my-kill-buffer-check activate)
 ;;   "Prompt when a buffer is about to be killed."
 ;;   (let* ((buffer-file-name (buffer-file-name))
