@@ -1,16 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (add-to-list 'load-path "~/.emacs.d/python-mode-1.0/")
-
-; custom place to save customizations
-(setq custom-file "~/.emacs.d/trochala/custom.el")
-(load custom-file)
-
-(when (file-exists-p ".passwords") (load ".passwords"))
-
+(add-to-list 'load-path "~/.emacs.d/ergoemacs/")
 (load "trochala/defuns")
-(load "trochala/bindings")
-(load "trochala/modes")
-(load "trochala/theme")
 
 (vendor 'nav)
 (vendor 'anything-config)
@@ -19,6 +10,16 @@
 (vendor 'gist)
 (vendor 'markdown-mode)
 (vendor 'yasnippet)
+
+; custom place to save customizations
+(setq custom-file "~/.emacs.d/trochala/custom.el")
+(load custom-file)
+
+(when (file-exists-p ".passwords") (load ".passwords"))
+
+(load "trochala/bindings")
+(load "trochala/modes")
+(load "trochala/theme")
 
 (load "trochala/global")
 

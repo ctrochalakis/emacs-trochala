@@ -16,8 +16,8 @@
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c |") 'toggle-window-split)
 
-(global-set-key (kbd "C-o") 'open-next-line)
-(global-set-key (kbd "M-o") 'open-previous-line)
+;(global-set-key (kbd "C-o") 'open-next-line)
+;(global-set-key (kbd "M-o") 'open-previous-line)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -36,3 +36,9 @@
 
 (global-set-key [C-kp-add]       '(lambda nil (interactive) (djcb-zoom 1)))
 (global-set-key [C-kp-subtract]  '(lambda nil (interactive) (djcb-zoom -1)))
+
+;; open keyboard shortcut image with F8 key
+(global-set-key (kbd "<f8>")
+  (lambda ()
+    (interactive)
+    (find-file "/home/belbo/ergonomic_emacs_layout_qwerty.png")))
