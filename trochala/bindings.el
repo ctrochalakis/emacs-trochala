@@ -34,8 +34,8 @@
 (global-set-key (kbd "<s-prior>") 'elscreen-previous) 
 (global-set-key (kbd "<s-next>")  'elscreen-next) 
 
-(global-set-key [C-kp-add]       '(lambda nil (interactive) (djcb-zoom 1)))
-(global-set-key [C-kp-subtract]  '(lambda nil (interactive) (djcb-zoom -1)))
+(global-set-key (kbd "M-+")       '(lambda nil (interactive) (djcb-zoom 1)))
+(global-set-key (kbd "M-_")  '(lambda nil (interactive) (djcb-zoom -1)))
 
 ;; open keyboard shortcut image with F8 key
 (global-set-key (kbd "<f8>")
