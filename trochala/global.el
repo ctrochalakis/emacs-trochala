@@ -31,6 +31,7 @@
 )
 
 (add-hook 'after-make-frame-functions 'ct-new-frame-settings)
+(add-to-list 'default-frame-alist '(height . 39))
 
 (add-to-list 'default-frame-alist '(font . "Envy Code R-10"))
 
