@@ -66,6 +66,7 @@
 (set-register ?g '(file . "~/.gitconfig"))
 (set-register ?h '(file . "~/.hgrc"))
 (set-register ?e '(file . "~/.emacs.d/trochala/global.el"))
+(set-register ?t '(file . "~/org/todo.org"))
 (set-register ?a '(file . "~/todo.org"))
 
 ;; Browser
