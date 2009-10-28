@@ -25,8 +25,7 @@
 ;; New frame defaults
 (defun ct-new-frame-settings (frame)
   (select-frame frame)
-  (choose-theme)
-)
+  (choose-theme))
 
 (add-hook 'after-make-frame-functions 'ct-new-frame-settings)
 (add-to-list 'default-frame-alist '(font . "Monospace-10"))
