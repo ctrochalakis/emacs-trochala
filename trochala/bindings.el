@@ -26,14 +26,6 @@
 (global-set-key [(control shift tab)] 'cycle-buffer-backward)
 (global-set-key [(control tab)]       'cycle-buffer)
 
-;; F9 creates a new elscreen, shift-F9 kills it
-(global-set-key (kbd "<f9>"    ) 'elscreen-create)
-(global-set-key (kbd "s-<f9>"  ) 'elscreen-kill)  
-
-;; Windowskey+PgUP/PgDown switches between elscreens
-(global-set-key (kbd "<s-prior>") 'elscreen-previous) 
-(global-set-key (kbd "<s-next>")  'elscreen-next) 
-
 (global-set-key (kbd "M-+")       '(lambda nil (interactive) (djcb-zoom 1)))
 (global-set-key (kbd "M-_")  '(lambda nil (interactive) (djcb-zoom -1)))
 
