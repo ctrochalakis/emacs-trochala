@@ -24,6 +24,7 @@
 (load "trochala/global")
 
 (load "trochala/trochala-python.el")
+(load "trochala/trochala-escreen.el")
 
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
