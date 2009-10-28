@@ -6,8 +6,8 @@
 ;(require 'project-root)
 
 
-;;(set-default-font "Monospace-10")
-(set-default-font "Envy Code R-11")
+(set-default-font "Monospace-10")
+;; (set-default-font "Envy Code R-9")
 
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
@@ -29,9 +29,9 @@
 )
 
 (add-hook 'after-make-frame-functions 'ct-new-frame-settings)
+(add-to-list 'default-frame-alist '(font . "Monospace-10"))
 (add-to-list 'default-frame-alist '(height . 39))
 
-(add-to-list 'default-frame-alist '(font . "Envy Code R-10"))
 
 ;; Some window system specific settings.
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
