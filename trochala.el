@@ -10,7 +10,7 @@
 (vendor 'gist)
 (vendor 'markdown-mode)
 (vendor 'yasnippet)
-
+(vendor 'rails-reloaded)
 ; custom place to save customizations
 (setq custom-file "~/.emacs.d/trochala/custom.el")
 (load custom-file)

@@ -4,6 +4,7 @@
 (require 'install-elisp)
 ;(require 'eproject)
 ;(require 'project-root)
+(require 'rails-autoload)
 
 
 ;;(set-default-font "Monospace-10")
