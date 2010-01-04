@@ -22,3 +22,6 @@
 [submodule "vendor/nav"]
 	path = vendor/nav
 	url = git://github.com/ctrochalakis/emacs-nav.git
+[submodule "vendor/rails-reloaded"]
+	path = vendor/rails-reloaded
+	url = git://github.com/dima-exe/emacs-rails-reloaded.git
