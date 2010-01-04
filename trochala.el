@@ -23,8 +23,8 @@
 
 (load "trochala/global")
 
-(load "trochala/trochala-python.el")
-
+;; (load "trochala/trochala-python.el")
+(load "trochala/trochala-ruby.el")
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
 ;(setq yas/trigger-key (kbd "C-c u"))
