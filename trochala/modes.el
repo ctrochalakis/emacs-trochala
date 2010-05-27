@@ -56,6 +56,18 @@
 ; Javascript
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.rjs$" . js2-mode))
+; Html
+; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . html-mode))
+
+(autoload 'tpl-mode "tpl-mode" "Mustache Mode" t)
+(add-to-list 'auto-mode-alist '("\\.mustache$" . tpl-mode))
+
 (autoload 'coffee-mode "coffee-mode" "Mustache Mode" t)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 
+; Ruby
+(add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.task$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
