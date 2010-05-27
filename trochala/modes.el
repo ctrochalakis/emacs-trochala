@@ -1,5 +1,6 @@
 (autoload 'django-mode "django-mode" "Django Mode" t)
 (autoload 'django-html-mode "django-html-mode" "Django html mode" t)
+(autoload 'yaml-mode "yaml-mode" "Yaml Mode" t)
 ;(autoload 'whole-line-or-region "whole-line-or-region" "Whole line" t)
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (require 'ergoemacs-mode)
