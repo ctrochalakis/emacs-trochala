@@ -31,6 +31,12 @@
 (setq kill-whole-line t) ;kill newline as well
 
 ;; Filetype specific
+; Yaml
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-hook 'yaml-mode-hook
+ '(lambda ()
+    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
 ; Matlab
 (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
 (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode))
