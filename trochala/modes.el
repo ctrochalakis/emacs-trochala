@@ -8,7 +8,7 @@
 
 (require 'whole-line-or-region)
 (setq default-major-mode 'indented-text-mode)
-(toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
+;(toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
 (cua-mode t)
 (setq cua-enable-cua-keys nil)		;do not mess with my keys!
 (recentf-mode t)		   ;remember recent files
