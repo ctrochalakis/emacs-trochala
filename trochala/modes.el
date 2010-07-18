@@ -66,6 +66,9 @@
 (autoload 'coffee-mode "coffee-mode" "Mustache Mode" t)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 
+(autoload 'feature-mode "feature-mode" "Feature Mode" t)
+(add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
+
 ; Ruby
 (add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.task$" . ruby-mode))
