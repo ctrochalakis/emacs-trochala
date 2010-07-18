@@ -7,7 +7,12 @@
 ;(require 'project-root)
 (require 'rails-autoload)
 
+;; Tagging
+(require 'etags-table)
+(setq etags-table-search-up-depth 10)
 (setq debug-on-error nil)
+(require 'etags-select)
+(global-set-key "\M-." 'etags-select-find-tag)
 
 (set-default-font "Monospace-10")
 ;; (set-default-font "Envy Code R-9")
