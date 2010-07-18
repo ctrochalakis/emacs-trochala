@@ -54,6 +54,7 @@
 (add-to-list 'auto-mode-alist '("\\.egg\\'" . archive-mode))
 
 ; Javascript
+(autoload 'espresso-mode "espresso" nil t)
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.rjs$" . js2-mode))
