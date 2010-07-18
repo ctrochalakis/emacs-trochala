@@ -28,9 +28,9 @@
 (setq install-elisp-repository-directory "~/.emacs.d/")
 
 ;; Start the server
-(server-start)
-(tabbar-mode t)
-(load "trochala/tabbar-custom")
+;; (server-start)
+;; (tabbar-mode t)
+;; (load "trochala/tabbar-custom")
 
 ;; New frame defaults
 ;; (require 'maxframe)
