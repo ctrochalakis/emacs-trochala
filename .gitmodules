@@ -25,3 +25,6 @@
 [submodule "vendor/rails-reloaded"]
 	path = vendor/rails-reloaded
 	url = git://github.com/dima-exe/emacs-rails-reloaded.git
+[submodule "vendor/nxhtml-v"]
+	path = vendor/nxhtml-v
+	url = git://github.com/emacsmirror/nxhtml.git

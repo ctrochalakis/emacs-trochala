@@ -8,7 +8,9 @@
  '(erc-email-userid "trochala")
  '(erc-modules (quote (autojoin button completion fill irccontrols keep-place list match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "trochala")
- '(erc-user-full-name "Christos Trochalakis"))
+ '(erc-user-full-name "Christos Trochalakis")
+ '(mumamo-chunk-coloring 1)
+ '(nxhtml-default-encoding (quote utf-8)))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.

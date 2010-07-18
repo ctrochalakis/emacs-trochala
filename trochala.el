@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/python-mode-1.0/")
 (add-to-list 'load-path "~/.emacs.d/ergoemacs/")
 (load "trochala/defuns")
+(load "vendor/nxhtml-v/autostart.el")
 
 (vendor 'nav)
 (vendor 'anything-config)
