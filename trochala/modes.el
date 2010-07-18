@@ -71,6 +71,10 @@
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 
 ; Ruby
+(vendor 'ruby-mode)
+(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.task$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
