@@ -15,11 +15,16 @@
 (global-set-key (kbd "C-c l") 'kill-buffer-and-window)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c |") 'toggle-window-split)
+(global-set-key (kbd "C-p") 'copy-line)
 
 ;(global-set-key (kbd "C-o") 'open-next-line)
 ;(global-set-key (kbd "M-o") 'open-previous-line)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+(global-set-key (kbd "M-3") 'comment-region)
+(global-set-key (kbd "M-#") 'uncomment-region)
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 ;(global-set-key (kbd "C-x C-<left>") 'cycle-buffer-backward)
 ;(global-set-key (kbd "C-x C-<right>") 'cycle-buffer)

@@ -1,5 +1,6 @@
 (autoload 'django-mode "django-mode" "Django Mode" t)
 (autoload 'django-html-mode "django-html-mode" "Django html mode" t)
+(autoload 'yaml-mode "yaml-mode" "Yaml Mode" t)
 ;(autoload 'whole-line-or-region "whole-line-or-region" "Whole line" t)
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "us")
 (require 'ergoemacs-mode)
@@ -7,7 +8,7 @@
 
 (require 'whole-line-or-region)
 (setq default-major-mode 'indented-text-mode)
-(toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
+;(toggle-text-mode-auto-fill)       ;always auto-fill in text mode,
 (cua-mode t)
 (setq cua-enable-cua-keys nil)		;do not mess with my keys!
 (recentf-mode t)		   ;remember recent files
@@ -30,6 +31,12 @@
 (setq kill-whole-line t) ;kill newline as well
 
 ;; Filetype specific
+; Yaml
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-hook 'yaml-mode-hook
+ '(lambda ()
+    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
 ; Matlab
 (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
 (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode))
@@ -39,6 +46,8 @@
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.mkd$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 ; Egg python files
 ;; Use archive mode to open Python eggs
@@ -47,6 +56,32 @@
 ; Javascript
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.rjs$" . js2-mode))
+; Html
+; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . html-mode))
+
+(autoload 'tpl-mode "tpl-mode" "Mustache Mode" t)
+(add-to-list 'auto-mode-alist '("\\.mustache$" . tpl-mode))
+
 (autoload 'coffee-mode "coffee-mode" "Mustache Mode" t)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+
+(autoload 'feature-mode "feature-mode" "Feature Mode" t)
+(add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
+
+; Ruby
+(add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.task$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+
+(setq
+ nxhtml-global-minor-mode t
+ mumamo-chunk-coloring 1
+ nxhtml-skip-welcome t
+ indent-region-mode t
+ rng-nxml-auto-validate-flag nil
+ nxml-degraded t)
+(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-nxhtml-mumamo-mode))
 

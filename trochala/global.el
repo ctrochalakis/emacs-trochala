@@ -18,6 +18,7 @@
 (autoload 'cycle-buffer-backward-permissive "cycle-buffer" "Cycle backward allowing *buffers*." t)
 (autoload 'cycle-buffer-toggle-interesting "cycle-buffer" "Toggle if this buffer will be considered." t)
 
+
 (setq install-elisp-repository-directory "~/.emacs.d/")
 
 ;; Start the server
@@ -26,14 +27,17 @@
 (load "trochala/tabbar-custom")
 
 ;; New frame defaults
-(defun ct-new-frame-settings (frame)
-  (select-frame frame)
-  (choose-theme))
+;; (require 'maxframe)
+;; (defun ct-new-frame-settings (frame)
+;;   (select-frame frame)
+;;   (choose-theme))
 
-(add-hook 'after-make-frame-functions 'ct-new-frame-settings)
-(add-to-list 'default-frame-alist '(font . "Monospace-10"))
-(add-to-list 'default-frame-alist '(height . 39))
+;; (add-hook 'after-make-frame-functions 'ct-new-frame-settings)
+;; (add-to-list 'default-frame-alist '(font . "Monospace-10"))
+;; (add-to-list 'default-frame-alist '(height . 39))
 
+;; ;;
+;; (add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; Some window system specific settings.
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))

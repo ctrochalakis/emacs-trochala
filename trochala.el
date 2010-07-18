@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/python-mode-1.0/")
 (add-to-list 'load-path "~/.emacs.d/ergoemacs/")
 (load "trochala/defuns")
+(load "vendor/nxhtml-v/autostart.el")
 
 (vendor 'nav)
 (vendor 'anything-config)
@@ -25,7 +26,7 @@
 
 ;; (load "trochala/trochala-python.el")
 (load "trochala/trochala-ruby.el")
-
+(load "trochala/trochala-escreen.el")
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
 ;(setq yas/trigger-key (kbd "C-c u"))

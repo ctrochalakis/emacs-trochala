@@ -26,7 +26,6 @@
 		    (set-variable 'py-smart-indentation nil)
 		    (set-variable 'indent-tabs-mode nil) 
 		    ;;(highlight-beyond-fill-column)
-                    (define-key python-mode-map "\C-m" 'newline-and-indent)
 		    ;(pabbrev-mode)
 		    ;(abbrev-mode)
 	 )
@@ -121,7 +120,7 @@
   ; 5) Try to do a regular python indent.
   ; 6) If at the end of a word, try autocomplete.
 ;;(define-key python-mode-map "\t" 'yas/expand)
-(define-key python-mode-map "\t" 'ryan-python-expand-after-yasnippet)
+;; (define-key python-mode-map "\t" 'ryan-python-expand-after-yasnippet)
 (add-hook 'python-mode-hook
           (lambda ()
             (set (make-local-variable 'yas/trigger-fallback) 'ryan-python-expand-after-yasnippet)))
