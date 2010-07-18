@@ -7,6 +7,7 @@
 ;(require 'project-root)
 (require 'rails-autoload)
 
+(setq debug-on-error nil)
 
 (set-default-font "Monospace-10")
 ;; (set-default-font "Envy Code R-9")
