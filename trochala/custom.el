@@ -10,7 +10,9 @@
  '(erc-nick "trochala")
  '(erc-user-full-name "Christos Trochalakis")
  '(mumamo-chunk-coloring 1)
- '(nxhtml-default-encoding (quote utf-8)))
+ '(nxhtml-default-encoding (quote utf-8))
+ '(nxml-bind-meta-tab-to-complete-flag t)
+ '(nxml-child-indent 4))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
