@@ -6,11 +6,17 @@
 ;(require 'project-root)
 (require 'rails-autoload)
 
+;; Tagging
+(require 'etags-table)
+(setq etags-table-search-up-depth 10)
 (setq debug-on-error nil)
+(require 'etags-select)
+(global-set-key "\M-." 'etags-select-find-tag)
 
-;;(set-default-font "Monospace-10")
-(set-default-font "Envy Code R-11")
+(set-default-font "Monospace-10")
+;; (set-default-font "Envy Code R-9")
 
+(autoload 'multi-term "multi-term" "Multi term" t)
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
 (autoload 'cycle-buffer-permissive "cycle-buffer" "Cycle forward allowing *buffers*." t)
@@ -21,9 +27,9 @@
 (setq install-elisp-repository-directory "~/.emacs.d/")
 
 ;; Start the server
-(server-start)
-(tabbar-mode t)
-(load "trochala/tabbar-custom")
+;; (server-start)
+;; (tabbar-mode t)
+;; (load "trochala/tabbar-custom")
 
 ;; New frame defaults
 ;; (require 'maxframe)
@@ -70,7 +76,6 @@
 (set-register ?h '(file . "~/.hgrc"))
 (set-register ?e '(file . "~/.emacs.d/trochala/global.el"))
 (set-register ?t '(file . "~/org/todo.org"))
-(set-register ?a '(file . "~/todo.org"))
 
 ;; Browser
 ;; (setq browse-url-browser-function 'w3m-browse-url)

@@ -1,11 +1,15 @@
 (add-hook 'ruby-mode-hook
-      (lambda () (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-(eval-after-load 'ruby-mode '(require 'rails-apidock))
+      (lambda ()
+        (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+        (add-hook 'write-file-functions
+                  '(lambda()
+                     (save-excursion
+                       (untabify (point-min) (point-max)))))
+        (set (make-local-variable 'indent-tabs-mode) 'nil)
+        (set (make-local-variable 'tab-width) 2)
+        (require 'ruby-electric)
+        (ruby-electric-mode t)))
 
-(setq auto-mode-alist
-      (append '(
-		("\\.rb$"   . ruby-mode)
-		("Rakefile" . ruby-mode)
-		("\\.rake$" . ruby-mode)
-;;		("\\.rjs"   . ruby-mode)
-		) auto-mode-alist))
+;; (eval-after-load 'ruby-mode '(require 'rails-apidock))
+
+(vendor 'ruby-hacks)

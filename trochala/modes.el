@@ -54,6 +54,7 @@
 (add-to-list 'auto-mode-alist '("\\.egg\\'" . archive-mode))
 
 ; Javascript
+(autoload 'espresso-mode "espresso" nil t)
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.rjs$" . js2-mode))
@@ -70,6 +71,10 @@
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 
 ; Ruby
+(vendor 'ruby-mode)
+(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.task$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
@@ -78,7 +83,7 @@
 
 (setq
  nxhtml-global-minor-mode t
- mumamo-chunk-coloring 1
+ mumamo-chunk-coloring 2
  nxhtml-skip-welcome t
  indent-region-mode t
  rng-nxml-auto-validate-flag nil
