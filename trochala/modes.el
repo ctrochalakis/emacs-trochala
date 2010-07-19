@@ -74,6 +74,7 @@
 (add-to-list 'auto-mode-alist '("\\.task$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.tower$" . ruby-mode))
 
 (setq
  nxhtml-global-minor-mode t
