@@ -2,7 +2,6 @@
 (require 'anything)
 (require 'smooth-scrolling)
 (require 'install-elisp)
-(require 'rails-autoload)
 ;(require 'eproject)
 ;(require 'project-root)
 (require 'rails-autoload)
