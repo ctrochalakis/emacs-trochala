@@ -16,6 +16,8 @@
 (global-set-key (kbd "C-c e") 'eval-buffer)
 (global-set-key (kbd "C-c |") 'toggle-window-split)
 (global-set-key (kbd "C-p") 'copy-line)
+(global-set-key (kbd "C-z") 'zap-to-char)
+(global-set-key (kbd "C-l") 'goto-line)
 
 ;(global-set-key (kbd "C-o") 'open-next-line)
 ;(global-set-key (kbd "M-o") 'open-previous-line)
