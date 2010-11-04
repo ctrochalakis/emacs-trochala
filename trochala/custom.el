@@ -4,6 +4,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(browse-url-browser-function (quote browse-url-firefox))
+ '(c-basic-offset 4)
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs" "#django" "#git"))))
  '(erc-email-userid "trochala")
  '(erc-modules (quote (autojoin button completion fill irccontrols keep-place list match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
