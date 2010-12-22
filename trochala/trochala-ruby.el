@@ -3,10 +3,10 @@
         (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
         (define-key ruby-mode-map (kbd "M-3") 'comment-region)
         (define-key ruby-mode-map (kbd "M-#") 'uncomment-region)
-        (add-hook 'write-file-functions
-                  '(lambda()
-                     (save-excursion
-                       (untabify (point-min) (point-max)))))
+;;        (add-hook 'write-file-functions
+;;                  '(lambda()
+;;                     (save-excursion
+;;                       (untabify (point-min) (point-max)))))
         (set (make-local-variable 'indent-tabs-mode) 'nil)
         (set (make-local-variable 'tab-width) 2)
         (require 'ruby-electric)
