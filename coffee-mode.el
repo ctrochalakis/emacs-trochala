@@ -55,9 +55,12 @@
 
 ;;; Code:
 
+(require 'comint)
 (require 'easymenu)
 (require 'font-lock)
-(require 'cl)
+
+(eval-when-compile
+  (require 'cl))
 
 ;;
 ;; Customizable Variables
@@ -96,14 +99,13 @@ path."
   :type 'string
   :group 'coffee)
 
-(defcustom coffee-repl-args '("-i")
+(defcustom coffee-args-repl '("-i")
   "The command line arguments to pass to `coffee-command' to start a REPL."
   :type 'list
   :group 'coffee)
 
-(defcustom coffee-command-args '("-s" "-p" "--no-wrap")
-  "The command line arguments to pass to `coffee-command' to get it to
-print the compiled JavaScript."
+(defcustom coffee-args-compile '("-c")
+  "The command line arguments to pass to `coffee-command' when compiling a file."
   :type 'list
   :group 'coffee)
 
@@ -124,7 +126,7 @@ print the compiled JavaScript."
 
 (defmacro setd (var val)
   "Like setq but optionally logs the variable's value using `coffee-debug'."
-  (if coffee-debug-mode
+  (if (and (boundp 'coffee-debug-mode) coffee-debug-mode)
       `(progn
          (coffee-debug "%s: %s" ',var ,val)
          (setq ,var ,val))
@@ -150,18 +152,17 @@ print the compiled JavaScript."
   (unless (comint-check-proc "*CoffeeREPL*")
     (set-buffer
      (apply 'make-comint "CoffeeREPL"
-            coffee-command nil coffee-repl-args)))
+            coffee-command nil coffee-args-repl)))
 
   (pop-to-buffer "*CoffeeScript*"))
 
 (defun coffee-compile-file ()
   "Compiles and saves the current file to disk. Doesn't open in a buffer.."
   (interactive)
-  (shell-command (concat coffee-command " -c " (buffer-file-name)))
-  (message "Compiled and saved %s"
-           (concat
-            (substring (buffer-file-name) 0 -6)
-            "js")))
+  (let ((compiler-output (shell-command-to-string (coffee-command-compile (buffer-file-name)))))
+    (if (string= compiler-output "")
+        (message "Compiled and saved %s" (concat (substring (buffer-file-name) 0 -6) "js"))
+      (message (car (split-string compiler-output "[\n\r]+"))))))
 
 (defun coffee-compile-buffer ()
   "Compiles the current buffer and displays the JS in another buffer."
@@ -180,10 +181,10 @@ print the compiled JavaScript."
   (call-process-region start end coffee-command nil
                        (get-buffer-create coffee-compiled-buffer-name)
                        nil
-                       "-s" "-p" "--no-wrap")
-  (switch-to-buffer-other-frame (get-buffer coffee-compiled-buffer-name))
+                       "-s" "-p" "--bare")
+  (switch-to-buffer (get-buffer coffee-compiled-buffer-name))
   (funcall coffee-js-mode)
-  (beginning-of-buffer))
+  (goto-char (point-min)))
 
 (defun coffee-show-version ()
   "Prints the `coffee-mode' version."
@@ -228,7 +229,10 @@ print the compiled JavaScript."
 ;;
 
 ;; Instance variables (implicit this)
-(defvar coffee-this-regexp "@\\w*\\|this")
+(defvar coffee-this-regexp "@\\(\\w\\|_\\)*\\|this")
+
+;; Prototype::access
+(defvar coffee-prototype-regexp "\\(\\(\\w\\|\\.\\|_\\| \\|$\\)+?\\)::\\(\\(\\w\\|\\.\\|_\\| \\|$\\)+?\\):")
 
 ;; Assignment
 (defvar coffee-assign-regexp "\\(\\(\\w\\|\\.\\|_\\| \\|$\\)+?\\):")
@@ -240,7 +244,7 @@ print the compiled JavaScript."
 (defvar coffee-namespace-regexp "\\b\\(class\\s +\\(\\S +\\)\\)\\b")
 
 ;; Booleans
-(defvar coffee-boolean-regexp "\\b\\(true\\|false\\|yes\\|no\\|on\\|off\\)\\b")
+(defvar coffee-boolean-regexp "\\b\\(true\\|false\\|yes\\|no\\|on\\|off\\|null\\)\\b")
 
 ;; Regular Expressions
 (defvar coffee-regexp-regexp "\\/.+?\\/")
@@ -278,6 +282,7 @@ print the compiled JavaScript."
   ;; because otherwise the keyword "state" in the function
   ;; "state_entry" would be highlighted.
   `((,coffee-this-regexp . font-lock-variable-name-face)
+    (,coffee-prototype-regexp . font-lock-variable-name-face)
     (,coffee-assign-regexp . font-lock-type-face)
     (,coffee-regexp-regexp . font-lock-constant-face)
     (,coffee-boolean-regexp . font-lock-constant-face)
@@ -301,9 +306,9 @@ For detail, see `comment-dwim'."
   (let ((deactivate-mark nil) (comment-start "#") (comment-end ""))
     (comment-dwim arg)))
 
-(defun coffee-command-full ()
-  "The full `coffee-command' complete with args."
-  (mapconcat 'identity (append (list coffee-command) coffee-command-args) " "))
+(defun coffee-command-compile (file-name)
+  "The `coffee-command' with args to compile a file."
+  (mapconcat 'identity (append (list coffee-command) coffee-args-compile (list file-name)) " "))
 
 ;;
 ;; imenu support
@@ -350,7 +355,7 @@ For detail, see `comment-dwim'."
   (interactive)
 
   ;; This function is called within a `save-excursion' so we're safe.
-  (beginning-of-buffer)
+  (goto-char (point-min))
 
   (let ((index-alist '()) assign pos indent ns-name ns-indent)
     ;; Go through every assignment that includes -> or => on the same
@@ -457,8 +462,11 @@ For detail, see `comment-dwim'."
 
   (save-excursion
     (forward-line -1)
-    (while (coffee-line-empty-p) (forward-line -1))
-    (current-indentation)))
+    (if (bobp)
+        0
+      (progn
+        (while (coffee-line-empty-p) (forward-line -1))
+        (current-indentation)))))
 
 (defun coffee-line-empty-p ()
   "Is this line empty? Returns non-nil if so, nil if not."
