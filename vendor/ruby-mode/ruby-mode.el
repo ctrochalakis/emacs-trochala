@@ -45,8 +45,8 @@
 ;;
 
 ;;; Code:
-fsdfsdfs
-(defconst ruby-mode-revision "$Revision$"
+
+(defconst ruby-mode-revision "$Revision: 30674 $"
   "Ruby mode revision string.")
 
 (defconst ruby-mode-version
@@ -122,8 +122,8 @@ fsdfsdfs
 
 (defun ruby-here-doc-beg-match ()
   (let ((contents (concat
-                   (regexp-quote (concat (match-string 2) (match-string 3)))
-                   (if (string= (match-string 3) "_") "\\B" "\\b"))))
+		   (regexp-quote (concat (match-string 2) (match-string 3)))
+		   (if (string= (match-string 3) "_") "\\B" "\\b"))))
     (concat "<<"
             (let ((match (match-string 1)))
               (if (and match (> (length match) 0))
@@ -173,7 +173,6 @@ fsdfsdfs
   (define-key ruby-mode-map "\C-c\C-e" 'ruby-insert-end)
   (define-key ruby-mode-map "\C-j" 'ruby-reindent-then-newline-and-indent)
   (define-key ruby-mode-map "\C-m" 'newline)
-  (define-key ruby-mode-map "\C-c\C-c" 'comment-region)
   (define-key ruby-mode-map "\C-c\C-u" 'uncomment-region))
 
 (defvar ruby-mode-syntax-table nil
@@ -297,6 +296,7 @@ Also ignores spaces after parenthesis when 'space."
 
 (defun ruby-mode-variables ()
   (set-syntax-table ruby-mode-syntax-table)
+  (setq show-trailing-whitespace t)
   (setq local-abbrev-table ruby-mode-abbrev-table)
   (make-local-variable 'indent-line-function)
   (setq indent-line-function 'ruby-indent-line)
@@ -973,6 +973,7 @@ An end of a defun is found by moving forward from the beginning of one."
       (condition-case nil
           (while (> i 0)
             (skip-syntax-forward " ")
+            (if (looking-at ",\\s *") (goto-char (match-end 0)))
             (cond ((looking-at "\\?\\(\\\\[CM]-\\)*\\\\?\\S ")
                    (goto-char (match-end 0)))
                   ((progn
@@ -1184,7 +1185,7 @@ balanced expression is found."
           ;; ?' ?" ?` are ascii codes
           ("\\(^\\|[^\\\\]\\)\\(\\\\\\\\\\)*[?$]\\([#\"'`]\\)" 3 (1 . nil))
           ;; regexps
-          ("\\(^\\|[=(,~?:;<>]\\|\\(^\\|\\s \\)\\(if\\|elsif\\|unless\\|while\\|until\\|when\\|and\\|or\\|&&\\|||\\)\\|g?sub!?\\|scan\\|split!?\\)\\s *\\(/\\)[^/\n\\\\]*\\(\\\\.[^/\n\\\\]*\\)*\\(/\\)"
+          ("\\(^\\|[[=(,~?:;<>]\\|\\(^\\|\\s \\)\\(if\\|elsif\\|unless\\|while\\|until\\|when\\|and\\|or\\|&&\\|||\\)\\|g?sub!?\\|scan\\|split!?\\)\\s *\\(/\\)[^/\n\\\\]*\\(\\\\.[^/\n\\\\]*\\)*\\(/\\)"
            (4 (7 . ?/))
            (6 (7 . ?/)))
           ("^\\(=\\)begin\\(\\s \\|$\\)" 1 (7 . nil))
@@ -1392,6 +1393,7 @@ buffer position `limit' or the end of the buffer."
      ;; symbols
      '("\\(^\\|[^:]\\)\\(:\\([-+~]@?\\|[/%&|^`]\\|\\*\\*?\\|<\\(<\\|=>?\\)?\\|>[>=]?\\|===?\\|=~\\|![~=]?\\|\\[\\]=?\\|\\(\\w\\|_\\)+\\([!?=]\\|\\b_*\\)\\|#{[^}\n\\\\]*\\(\\\\.[^}\n\\\\]*\\)*}\\)\\)"
        2 font-lock-reference-face)
+     '("\\(^\\s *\\|[\[\{\(,]\\s *\\|\\sw\\s +\\)\\(\\(\\sw\\|_\\)+\\):[^:]" 2 font-lock-reference-face)
      ;; expression expansion
      '("#\\({[^}\n\\\\]*\\(\\\\.[^}\n\\\\]*\\)*}\\|\\(\\$\\|@\\|@@\\)\\(\\w\\|_\\)+\\)"
        0 font-lock-variable-name-face t)
