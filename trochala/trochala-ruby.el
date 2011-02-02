@@ -3,6 +3,7 @@
         (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
         (define-key ruby-mode-map (kbd "M-3") 'comment-region)
         (define-key ruby-mode-map (kbd "M-#") 'uncomment-region)
+        (define-key ruby-mode-map (kbd "C-l") 'goto-line)
 ;;        (add-hook 'write-file-functions
 ;;                  '(lambda()
 ;;                     (save-excursion
