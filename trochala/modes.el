@@ -81,16 +81,27 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.tower$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.thor$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Thorfile$" . ruby-mode))
 
-(setq
- nxhtml-global-minor-mode t
- mumamo-chunk-coloring 2
- nxhtml-skip-welcome t
- indent-region-mode t
- rng-nxml-auto-validate-flag nil
- nxml-degraded t)
-(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-nxhtml-mumamo-mode))
+(vendor 'rhtml-mode)
+;; (require 'rhtml-mode)
+(autoload 'rhtml-mode "rhtml-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+
+;; (setq
+;;  nxhtml-global-minor-mode t ; comment?
+;;  mumamo-chunk-coloring 2
+;;  nxhtml-skip-welcome t
+;;  indent-region-mode nil
+;;  rng-nxml-auto-validate-flag nil
+;;  nxml-degraded t)
+
+;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-nxhtml-mumamo-mode))
+
 
 ; Go
 (require 'go-mode-load) ; Autoloads

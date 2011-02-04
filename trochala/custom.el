@@ -10,6 +10,7 @@
  '(erc-modules (quote (autojoin button completion fill irccontrols keep-place list match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "trochala")
  '(erc-user-full-name "Christos Trochalakis")
+ '(js2-mirror-mode nil)
  '(mumamo-chunk-coloring 1)
  '(nxhtml-default-encoding (quote utf-8))
  '(nxml-bind-meta-tab-to-complete-flag t)

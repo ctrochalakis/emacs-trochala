@@ -28,3 +28,6 @@
 [submodule "vendor/nxhtml-v"]
 	path = vendor/nxhtml-v
 	url = git://github.com/emacsmirror/nxhtml.git
+[submodule "vendor/rhtml-mode"]
+	path = vendor/rhtml-mode
+	url = http://github.com/eschulte/rhtml.git
