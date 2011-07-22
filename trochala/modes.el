@@ -91,6 +91,16 @@
 (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
 
+;; Clojure
+;; (add-hook 'clojure-mode-hook
+;;           (lambda ()
+;;             ;(highlight-parentheses-mode t)
+;;             (paredit-mode t)
+;;             (slime-mode t)
+;;             (setq hl-parens-colors '("red1" "orange1" "yellow1" "green1" "cyan1" "slateblue1" "magenta1" "purple"))))
+
+(add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)
+
 ;; (setq
 ;;  nxhtml-global-minor-mode t ; comment?
 ;;  mumamo-chunk-coloring 2
