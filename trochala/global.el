@@ -16,7 +16,6 @@
 (set-default-font "Monospace-10")
 ;; (set-default-font "Envy Code R-9")
 
-(autoload 'multi-term "multi-term" "Multi term" t)
 (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
 (autoload 'cycle-buffer-permissive "cycle-buffer" "Cycle forward allowing *buffers*." t)
