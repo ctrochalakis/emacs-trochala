@@ -4,7 +4,7 @@
 (require 'install-elisp)
 ;(require 'eproject)
 ;(require 'project-root)
-(require 'rails-autoload)
+;;(require 'rails-autoload)
 
 ;; Tagging
 (require 'etags-table)
@@ -21,7 +21,6 @@
 (autoload 'cycle-buffer-permissive "cycle-buffer" "Cycle forward allowing *buffers*." t)
 (autoload 'cycle-buffer-backward-permissive "cycle-buffer" "Cycle backward allowing *buffers*." t)
 (autoload 'cycle-buffer-toggle-interesting "cycle-buffer" "Toggle if this buffer will be considered." t)
-
 
 (setq install-elisp-repository-directory "~/.emacs.d/")
 
@@ -49,6 +48,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)		;no big prompts
 (setq ido-ignore-buffers '("^ " "^*"))	;ignore special buffers
+(setq kill-buffer-query-functions
+      (remq 'process-kill-buffer-query-function
+	    kill-buffer-query-functions)) ;don't ask about killing process buf
 
 ;; Moving around
 (setq track-eol t)			;stay at the end of line while moving
@@ -56,6 +58,7 @@
 ;;(setq scroll-margin 2)			;scroll 3 lines from the edge
 (setq smooth-scroll-margin 2)			;scroll 3 lines from the edge
 (setq default-indicate-empty-lines t)	;indicate empty lines (left fring)
+(setq next-line-add-newlines t) ; Don't press enter to add a newlinenewline
 
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist `(("." . ,(expand-file-name "~/.emacs.d/backups")))
@@ -92,3 +95,7 @@
 ;; (define-project-type python (generic)
 ;;   (or (look-for "setup.py") (look-for "manage.py"))
 ;;   :relevant-files ("\\.py$" "\\.html$"))
+
+
+
+

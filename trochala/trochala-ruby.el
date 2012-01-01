@@ -1,3 +1,5 @@
+;;(vendor 'rails-reloaded)
+
 (add-hook 'ruby-mode-hook
       (lambda ()
         (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)

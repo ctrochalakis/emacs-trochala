@@ -13,6 +13,9 @@
 ;(add-to-list 'load-path "~/.emacs.d/dave-loves-python-mode")
 ;(load-library "python")
 
+;; Added by ctrochalakis
+(add-to-list 'load-path "~/.emacs.d/python-mode-1.0/")
+
 (autoload 'auto-complete "auto-complete" "Autocomplete" t)
 (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))

@@ -12,6 +12,12 @@
     (when (file-exists-p (concat trochala ".el"))
       (load trochala))))
 
+(defun vendor-add-path (library)
+  (let* ((file (symbol-name library))
+	 (vendor-path (concat "~/emacs.d/vendor/" file)))
+    (when (file-directory-p vendor-path)
+      (add-to-list 'load-path vendor-path))))
+
 (defun copy-line ()
   "Copy current line in the kill ring"
   (interactive)
